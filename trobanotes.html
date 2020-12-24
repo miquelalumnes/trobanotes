@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<!-- Add a path to your jQuery directory-->
+<script src=""></script>
+
+<style>
+
+input{
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+#trobaNotesButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#trobaNotesButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<body>
+
+    <input type="text" name="nom" id="nom" placeholder="Posa un nom de persona aquí">
+    <br>
+    <button  id="trobaNotesButton" onclick="trobaNotes()">Troba notes</button>
+    <p id="resultPreface">Ummm... de moment no he trobat res.</p>
+    <h2 id="result"></h2>
+    <div id="reload"></div>
+    <script>
+        function trobaNotes() {
+            var nom = document.getElementById('nom').value;
+            var nom = nom.toLowerCase();
+            var notes = Array('do', 're', 'mi', 'fa', 'sol', 'la', 'si');
+            var i;
+            for (i = 0; i < notes.length; i++) {
+                var result = nom.search(notes[i]);
+                if (result >= 0) {
+                    console.log(result);
+                    
+                    document.getElementById("resultPreface").innerHTML = "He trobat aquestes notes en el nom:";                    
+                    $("h2").append(notes[i] + "<br>");
+                    document.getElementById("reload").innerHTML = "<button  id='reloadButton' onClick='window.location.reload();'>Torna-hi</button>";
+                    
+
+                }
+
+            }
+            // if result is less than 0, then nothing found.
+
+
+        }
+        
+        document.getElementById("nom").reset();
+
+    </script>
+</body>
+
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
